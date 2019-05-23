@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const databaseConfig = require("./config/database");
@@ -19,7 +20,9 @@ class App {
     });
   }
 
-  middlewares() {}
+  middlewares() {
+    this.express.use(express.json());
+  }
 
   routes() {
     this.express.use(require("./routes"));
