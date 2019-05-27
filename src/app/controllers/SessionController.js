@@ -2,6 +2,7 @@ const User = require("../models/User");
 
 class SessionController {
   async store(req, res) {
+    console.log(req.body.email);
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
@@ -12,6 +13,7 @@ class SessionController {
     if (!(await user.compareHash(password))) {
       return res.status(400).json({ error: " Invalid password" });
     }
+    User.generateToken(user);
 
     return res.json({ user, token: User.generateToken(user) });
   }
