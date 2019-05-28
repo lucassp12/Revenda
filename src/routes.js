@@ -1,7 +1,9 @@
 const express = require("express");
 const routes = express.Router();
+const multerConfig = require("./config/multer");
+const upload = require("multer")(multerConfig);
 
-const authMiddeware = require("./app/middlewares/auth");
+//const authMiddeware = require("./app/middlewares/auth");
 
 routes.get("/", function(req, res) {
   res.render("layout");
@@ -18,10 +20,13 @@ routes.post("/users", UserController.store);
 const SessionController = require("./app/controllers/SessionController");
 routes.post("/login", SessionController.store);
 
-routes.use(authMiddeware);
+//routes.use(authMiddeware);
 /*--- Company ---*/
 
 const CompanyController = require("./app/controllers/CompanyController");
-routes.post("/company", CompanyController.store);
+routes.get("/company", function(req, res) {
+  res.render("pages/company");
+});
+routes.post("/company", upload.single("logo"), CompanyController.store);
 
 module.exports = routes;

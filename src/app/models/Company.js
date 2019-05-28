@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const Company = new mongoose.Schema({
+  logo: {
+    type: String,
+    required: true
+  },
   name: {
     type: String,
     required: true
@@ -9,31 +13,29 @@ const Company = new mongoose.Schema({
     type: String,
     required: true
   },
-  address: {
-    street: {
-      type: String,
-      required: true
-    },
-    number: {
-      type: String,
-      required: true
-    },
-    neighborhood: {
-      type: String,
-      required: true
-    },
-    state: {
-      type: String,
-      required: true
-    },
-    zip_code: {
-      type: String,
-      required: true
-    },
-    country: {
-      type: String,
-      required: true
-    }
+  street: {
+    type: String,
+    required: true
+  },
+  number: {
+    type: String,
+    required: true
+  },
+  neighborhood: {
+    type: String,
+    required: true
+  },
+  state: {
+    type: String,
+    required: true
+  },
+  zip_code: {
+    type: String,
+    required: true
+  },
+  country: {
+    type: String,
+    required: true
   },
   createdAt: {
     type: Date,
