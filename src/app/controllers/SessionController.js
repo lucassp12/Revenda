@@ -2,20 +2,22 @@ const User = require("../models/User");
 
 class SessionController {
   async store(req, res) {
-    console.log(req.body.email);
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
+    console.log(user);
 
     if (!user) {
-      return res.status(400).json({ error: "User not found" });
+      //req.flash("error", "Usuário não encontrado");
+      return res.redirect("/");
     }
-    if (!(await user.compareHash(password))) {
-      return res.status(400).json({ error: " Invalid password" });
-    }
-    User.generateToken(user);
 
-    return res.json({ user, token: User.generateToken(user) });
+    if (!(await user.compareHash(password))) {
+      //req.flash("error", "Senha incorreta");
+      return res.redirect("/");
+    }
+    req.session.user = user;
+    return res.redirect("/app/dashboard");
   }
 }
 module.exports = new SessionController();
