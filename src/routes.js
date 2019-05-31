@@ -22,6 +22,12 @@ const SessionController = require("./app/controllers/SessionController");
 routes.post("/login", SessionController.store);
 
 routes.use(authMiddeware);
+
+/*-- DashBoard --*/
+routes.get("/dashboard", function(req, res) {
+  res.render("pages/dashboard/index");
+});
+
 /*--- Company ---*/
 const CompanyController = require("./app/controllers/CompanyController");
 routes.get("/company", function(req, res) {

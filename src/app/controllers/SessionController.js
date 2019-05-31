@@ -5,7 +5,6 @@ class SessionController {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
-    console.log(user);
 
     if (!user) {
       //req.flash("error", "Usuário não encontrado");

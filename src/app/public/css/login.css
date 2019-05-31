@@ -3,8 +3,7 @@
   margin: 0;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
-
-/* Login */
+/* ---- Login ---*/
 .container-form {
   background: #248ee5;
   width: 100%;
@@ -45,46 +44,4 @@
   font-size: 20px;
 }
 
-/*
-Dashboard
-*/
-
-.header {
-  width: 100%;
-  height: 40px;
-  border: 1px solid black;
-  display: block;
-  background: #1b1e28;
-}
-.menu-left {
-  width: 180px;
-  height: 100%;
-  border-top: 1px solid black;
-  background: #1b1e28;
-}
-.conteudo-menu {
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-.conteudo-menu a {
-  text-decoration: none;
-  color: white;
-  margin-bottom: 3px;
-}
-.conteudo-menu i {
-  color: #fff;
-}
-.centro {
-  width: 400px;
-  display: block;
-  background: red;
-  float: right;
-}
-.centro img {
-  display: inline-block;
-  margin-left: 400px;
-  width: 400px;
-  height: 400px;
-  border: 1px solid black;
-}
+/* ---- END Login ---*/
