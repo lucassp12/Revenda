@@ -1,6 +1,10 @@
 const Company = require("../models/Company");
 
 class CompanyController {
+  async create(req, res) {
+    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    return res.render("dashboard/company", { company });
+  }
   async index(req, res) {
     const company = await Company.findById("5cf56c52e446d37414c7204e");
 

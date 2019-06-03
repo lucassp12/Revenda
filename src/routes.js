@@ -26,8 +26,6 @@ const CompanyController = require("./app/controllers/CompanyController");
 routes.get("/dashboard", CompanyController.index);
 
 /*--- Company ---*/
-routes.get("/company", function(req, res) {
-  res.render("dashboard/company");
-});
+routes.get("/company", CompanyController.create);
 routes.post("/company", upload.single("logo"), CompanyController.update);
 module.exports = routes;
