@@ -1,0 +1,84 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Utilizando o EJS</title>
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  </head>
+  <body>
+      <div id="main">
+          <article>
+              {% block body %}{% endblock %}
+          </article>
+
+          <nav>
+            <div class="menu">
+
+              <div class="logo">
+                  
+                <img src="/files/{{ company.logo}}"/>
+                <strong>{{ company.name }}</strong>
+                
+              </div>
+              <ul>
+                <li>
+                  <a href="/dashboard"><i class="fas fa-home"> Home</i></a>
+                </li>
+                <li>
+                  <a href="/company"><i class="fas fa-building"> Empresa</i></a>
+                </li>
+                <li>
+                    <a class="dropdown-btn"><i class="fas fa-car"> Clientes</i></a>
+                    <div class="dropdown-container">
+                        <a href="#"> Cadastro de Clientes</a>
+                        <a href="#"> Lista de Clientes</a>
+                  </li>
+                <li>
+                    <a class="dropdown-btn"><i class="fas fa-car"> Veiculos</i></a>
+                    <div class="dropdown-container">
+                        <a href="#"> Cadastrar Veiculos</a>
+                        <a href="#"> Lista de veiculos</a>
+                  </li>
+                <li>
+                  <a class="dropdown-btn"><i class="fas fa-book"> Cadastros</i>
+                      <i class="fa fa-caret-down"></i>
+                  </a>
+                    <div class="dropdown-container">
+                      <a href="#"><i class="fas fa-user-friends"> Usuarios</i></a>
+                      <a href="#">Categorias</a>
+                      <a href="#">Link 3</a>
+                </li>
+                <li>
+                  <a href=""><i class="fas fa-shopping-cart"> Financeiro</i></a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <footer>footer</footer>
+        
+        
+        <script>
+            /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+            
+            for (i = 0; i < dropdown.length; i++) {
+              dropdown[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var dropdownContent = this.nextElementSibling;
+              if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+              } else {
+              dropdownContent.style.display = "block";
+              }
+              });
+            }
+            </script>
+        
+  </body>
+  </html> 

@@ -5,12 +5,11 @@ const upload = require("multer")(multerConfig);
 
 const authMiddeware = require("./app/middlewares/auth");
 
-routes.get("/", function(req, res) {
-  res.render("pages/index");
-});
+const FileController = require("./app/controllers/FileController");
+routes.get("/files/:file", FileController.show);
 
-routes.get("/login", function(req, res) {
-  res.render("pages/login");
+routes.get("/", function(req, res) {
+  res.render("auth/signin");
 });
 /*--- User---*/
 const UserController = require("./app/controllers/UserController");
@@ -22,17 +21,13 @@ const SessionController = require("./app/controllers/SessionController");
 routes.post("/login", SessionController.store);
 
 routes.use(authMiddeware);
-
+const CompanyController = require("./app/controllers/CompanyController");
 /*-- DashBoard --*/
-routes.get("/dashboard", function(req, res) {
-  res.render("pages/dashboard/index");
-});
+routes.get("/dashboard", CompanyController.index);
 
 /*--- Company ---*/
-const CompanyController = require("./app/controllers/CompanyController");
 routes.get("/company", function(req, res) {
-  res.render("pages/company");
+  res.render("dashboard/company");
 });
-routes.post("/company", upload.single("logo"), CompanyController.store);
-
+routes.post("/company", upload.single("logo"), CompanyController.update);
 module.exports = routes;

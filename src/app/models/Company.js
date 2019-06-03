@@ -13,6 +13,10 @@ const Company = new mongoose.Schema({
     type: String,
     required: true
   },
+  ie: {
+    type: String,
+    required: true
+  },
   street: {
     type: String,
     required: true
@@ -33,7 +37,11 @@ const Company = new mongoose.Schema({
     type: String,
     required: true
   },
-  country: {
+  city: {
+    type: String,
+    required: true
+  },
+  phone_number: {
     type: String,
     required: true
   },

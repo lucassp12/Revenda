@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js -e js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -19,6 +19,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.10",
     "multer": "^1.4.1",
+    "nunjucks": "^3.2.0",
     "path": "^0.12.7",
     "session-file-store": "^1.2.0"
   },

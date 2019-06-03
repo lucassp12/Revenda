@@ -1,12 +1,24 @@
 const Company = require("../models/Company");
 
 class CompanyController {
-  async store(req, res) {
-    console.log(req.body);
-    const { filename: logo } = req.file;
-    const company = await Company.create({ ...req.body, logo });
+  async index(req, res) {
+    const company = await Company.findById("5cf56c52e446d37414c7204e");
 
-    return res.json(company);
+    return res.render("_layouts/dashboard", { company });
+  }
+  async update(req, res) {
+    const { filename: logo } = req.file;
+    const id = "5cf56c52e446d37414c7204e";
+
+    await Company.findByIdAndUpdate(
+      id,
+      { ...req.body, logo },
+      {
+        new: true
+      }
+    );
+
+    return res.redirect("/dashboard");
   }
 }
 
