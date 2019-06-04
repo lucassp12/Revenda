@@ -29,3 +29,8 @@ routes.get("/dashboard", CompanyController.index);
 routes.get("/company", CompanyController.create);
 routes.post("/company", upload.single("logo"), CompanyController.update);
 module.exports = routes;
+
+/*--- Customer ---*/
+const CustomerController = require("./app/controllers/CustomerController");
+routes.get("/customer", CustomerController.index);
+routes.post("/customer", CustomerController.store);
