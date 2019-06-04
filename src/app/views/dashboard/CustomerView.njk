@@ -1,0 +1,67 @@
+{% extends "_layouts/dashboard.njk" %}
+{% block body %}
+<div class="container-form">
+<div class="container-view">
+
+<h2>Cliente, {{customer.name}}</h2>
+<hr>
+<dl class="dl-horizontal">
+	<dt>Nome Completo:</dt>
+	<dd>{{customer.name}}</dd>
+
+  	<dt>Tipo de pessoa:</dt>
+	<dd>{{customer.type}}</dd>
+
+	<dt>CPF/CNPJ:</dt>
+	<dd>{{customer.cpf_cnpj}}</dd>
+
+	<dt>RG:</dt>
+	<dd>{{customer.rg}}</dd>
+
+	<dt>Orgão emissor(RG):</dt>
+	<dd>{{customer.o_rg}}</dd>
+
+  <dt>Data de Nascimento:</dt>
+	<dd>{{customer.birth_date}}</dd>
+
+	<dt>Telefone:</dt>
+	<dd>{{customer.phone_number}}</dd>
+</dl>
+
+<dl class="dl-horizontal">
+	<dt>Endereço:</dt>
+	<dd>{{customer.address}}</dd>
+
+	<dt>Número:</dt>
+	<dd>{{customer.number}}</dd>
+
+	<dt>Bairro:</dt>
+	<dd>{{customer.neighborhood}}</dd>
+
+	<dt>Cidade:</dt>
+	<dd>{{customer.city}}</dd>
+
+	<dt>UF:</dt>
+	<dd>{{customer.state}}</dd>
+
+	<dt>CEP:</dt>
+	<dd>{{customer.zip_code}}</dd>
+</dl>
+
+<dl class="dl-horizontal">
+	<dt>Email:</dt>
+	<dd>{{customer.email}}</dd>
+
+  <dt>Adicionais:</dt>
+	<dd>{{customer.information}}</dd>
+</dl>
+
+<div id="actions" class="row">
+	<div class="col-md-12">
+	  <a href="edit.php?id=<?php echo $customer['id']; ?>" class="btn btn-primary">Editar</a>
+	  <a href="/customers" class="btn btn-default">Voltar</a>
+	</div>
+</div>
+</div>
+</div>
+{% endblock %}

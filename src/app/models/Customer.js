@@ -53,12 +53,9 @@ const Customer = new mongoose.Schema({
     type: String,
     required: true
   },
-  phone_one: {
+  phone_number: {
     type: String,
     required: true
-  },
-  phone_two: {
-    type: String
   },
   information: {
     type: String
