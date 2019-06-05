@@ -4,17 +4,25 @@ const Company = require("../models/Company");
 class CustomerController {
   async index(req, res) {
     const company = await Company.findById("5cf56c52e446d37414c7204e");
-    res.render("dashboard/CustomerCreate", { company });
+
+    return res.render("dashboard/Customer/CustomerCreate", { company });
   }
   async show(req, res) {
     const company = await Company.findById("5cf56c52e446d37414c7204e");
-    if (req.params.id === undefined) {
-      const customer = await Customer.find();
-      res.render("dashboard/CustomerList", { company, customers: customer });
-    } else {
-      const customer = await Customer.findById(req.params.id);
-      res.render("dashboard/CustomerView", { company, customer });
-    }
+
+    const customer = await Customer.find();
+
+    return res.render("dashboard/Customer/CustomerList", {
+      company,
+      customers: customer
+    });
+  }
+  async showView(req, res) {
+    const company = await Company.findById("5cf56c52e446d37414c7204e");
+
+    const customer = await Customer.findById(req.params.id);
+
+    return res.render("dashboard/Customer/CustomerView", { company, customer });
   }
   async store(req, res) {
     await Customer.create(req.body);
@@ -25,9 +33,8 @@ class CustomerController {
     const company = await Company.findById("5cf56c52e446d37414c7204e");
 
     const customer = await Customer.findById(req.params.id);
-    console.log(customer);
 
-    res.render("dashboard/CustomerEdit", { company, customer });
+    return res.render("dashboard/Customer/CustomerEdit", { company, customer });
   }
   async update(req, res) {
     await Customer.findByIdAndUpdate(

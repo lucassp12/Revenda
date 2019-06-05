@@ -11,9 +11,8 @@ class CompanyController {
     return res.render("_layouts/dashboard", { company });
   }
   async update(req, res) {
-    const { filename: logo } = req.file;
     const id = "5cf56c52e446d37414c7204e";
-
+    const { filename: logo } = req.file;
     await Company.findByIdAndUpdate(
       id,
       { ...req.body, logo },

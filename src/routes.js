@@ -35,7 +35,7 @@ const CustomerController = require("./app/controllers/CustomerController");
 routes.get("/customer", CustomerController.index);
 routes.post("/customer", CustomerController.store);
 routes.get("/customers", CustomerController.show);
-routes.get("/customer/:id", CustomerController.show);
+routes.get("/customer/:id", CustomerController.showView);
 routes.get("/customer/edit/:id", CustomerController.viewEdit);
 routes.get("/customer/ex/:id", CustomerController.delete);
 routes.post("/customer/edit/:id", CustomerController.update);
