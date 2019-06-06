@@ -39,3 +39,12 @@ routes.get("/customer/:id", CustomerController.showView);
 routes.get("/customer/edit/:id", CustomerController.viewEdit);
 routes.get("/customer/ex/:id", CustomerController.delete);
 routes.post("/customer/edit/:id", CustomerController.update);
+
+/*--- Category---*/
+const CategoryController = require("./app/controllers/CategoryController");
+routes.get("/categories", CategoryController.index);
+routes.get("/category", CategoryController.create);
+routes.post("/category", CategoryController.store);
+routes.get("/category/edit/:id", CategoryController.viewEdit);
+routes.post("/category/edit/:id", CategoryController.update);
+routes.get("/category/:id", CategoryController.delete);

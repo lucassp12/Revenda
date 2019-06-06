@@ -9,12 +9,20 @@ class CustomerController {
   }
   async show(req, res) {
     const company = await Company.findById("5cf56c52e446d37414c7204e");
-
-    const customer = await Customer.find();
+    const filters = {};
+    const options = {
+      page: req.query.page || 1,
+      limit: 8
+    };
+    const customer = await Customer.paginate(filters, options);
 
     return res.render("dashboard/Customer/CustomerList", {
       company,
-      customers: customer
+      customers: customer.docs,
+      pages: {
+        total: customer.totalPages,
+        page: customer.page
+      }
     });
   }
   async showView(req, res) {

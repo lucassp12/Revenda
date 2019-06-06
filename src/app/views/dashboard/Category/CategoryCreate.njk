@@ -1,0 +1,27 @@
+{% extends "_layouts/dashboard.njk" %}
+{% block body %}
+<div class="container-form">
+  <div class="form-category">
+    <form
+      class="form"
+      method="post"
+      action="/category"
+    >
+      <h1>Cadastro de Categoria:</h1>
+      <hr />
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label for="name">Nome da Categoria:</label>
+          <input type="text" class="form-control" name="name" />
+        </div>
+      </div>  
+      <div id="actions" class="row">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <a href="/categories" class="btn btn-default">Cancelar</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

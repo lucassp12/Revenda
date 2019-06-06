@@ -3,6 +3,9 @@
 <div class="container-form">
 <div class="table-customers">
 <h1>Lista de Clientes: </h1>
+		<td class="actions text-right">
+			<a href="/customer" class="btn btn-sm btn-success"><i class="fas fa-plus"></i> Adicionar</a>
+		</td>
   <table class="table table-hover">
 <thead>
 	<tr>
@@ -13,7 +16,7 @@
 	</tr>
 </thead>
 <tbody>
-{% if (customers) %}
+{% if (customers != 0) %}
 {% for customer in customers %}
 	<tr>
 		<td>{{customer.name}}</td>
@@ -32,6 +35,22 @@
 {% endif %}
 </tbody>
 </table>
+	    <div class="paginate">
+    <a href="/customers?page={{pages.page -1}}" class="btn btn-sm btn-primary"
+    {% if (pages.page === 1) %}
+    disabled 
+    {% endif %}
+    
+    >Anterior</a>
+    <input type="text" value="{{pages.page}}" disabled>
+    <span>de</span>
+    <input type="text" value="{{pages.total}}" disabled>
+    <a  class="btn btn-sm btn-success" href="/customers?page={{pages.page +1}}"
+    {% if (pages.page === pages.total) %}
+    disabled 
+    {% endif %}
+    >Próxima</a>
+    </div>
 </div>
 </div>
 {% endblock %}

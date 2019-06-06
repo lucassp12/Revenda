@@ -186,3 +186,45 @@ td {
   border-radius: 20px;
   margin-top: 20px;
 }
+/* ---- Category ---*/
+
+.form-category {
+  width: 42%;
+  height: 40%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+.table-category {
+  width: 50%;
+  height: 80%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.table-category h1 {
+  text-align: center;
+}
+/* ---- Paginate ---*/
+.paginate {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.paginate input {
+  width: 30px;
+}
+.paginate button {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.paginate span {
+  display: block;
+  margin-top: 10px;
+  padding: 3px;
+}
