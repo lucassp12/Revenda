@@ -57,3 +57,12 @@ routes.post("/mark", MarkController.store);
 routes.get("/mark/edit/:id", MarkController.viewEdit);
 routes.post("/mark/edit/:id", MarkController.update);
 routes.get("/mark/:id", MarkController.delete);
+
+/*--- Vehicles---*/
+const VehicleController = require("./app/controllers/VehicleController");
+routes.get("/vehicles", VehicleController.index);
+routes.get("/vehicle", VehicleController.create);
+routes.post("/vehicle", VehicleController.store);
+routes.get("/vehicle/edit/:id", VehicleController.viewEdit);
+routes.post("/vehicle/edit/:id", VehicleController.update);
+routes.get("/vehicle/:id", VehicleController.delete);
