@@ -48,3 +48,12 @@ routes.post("/category", CategoryController.store);
 routes.get("/category/edit/:id", CategoryController.viewEdit);
 routes.post("/category/edit/:id", CategoryController.update);
 routes.get("/category/:id", CategoryController.delete);
+
+/*--- Mark---*/
+const MarkController = require("./app/controllers/MarkController");
+routes.get("/marks", MarkController.index);
+routes.get("/mark", MarkController.create);
+routes.post("/mark", MarkController.store);
+routes.get("/mark/edit/:id", MarkController.viewEdit);
+routes.post("/mark/edit/:id", MarkController.update);
+routes.get("/mark/:id", MarkController.delete);
