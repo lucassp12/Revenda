@@ -1,0 +1,75 @@
+{% extends "_layouts/dashboard.njk" %}
+{% block body %}
+<div class="container-form">
+<div class="container-view">
+
+<h2>{{vehicle.model}}</h2>
+<hr>
+<dl class="dl-horizontal">
+	<dt>Marca:</dt>
+	<dd>{{vehicle.mark}}</dd>
+
+  <dt>Categoria:</dt>
+	<dd>{{vehicle.category}}</dd>
+
+	<dt>Modelo:</dt>
+	<dd>{{vehicle.model}}</dd>
+
+	<dt>Ano Fabricação:</dt>
+	<dd>{{vehicle.year_manufacture}}</dd>
+
+	<dt>Ano Modelo:</dt>
+	<dd>{{vehicle.year_model}}</dd>
+
+  <dt>Placa:</dt>
+	<dd>{{vehicle.plate}}</dd>
+
+	<dt>Renavam:</dt>
+	<dd>{{vehicle.renavam}}</dd>
+
+  <dt>Cor:</dt>
+	<dd>{{vehicle.color}}</dd>
+
+  <dt>Nº de Portas:</dt>
+	<dd>{{vehicle.number_doors}}</dd>
+
+  <dt>Combústivel:</dt>
+	<dd>{{vehicle.fuel}}</dd>
+
+  <dt>KM:</dt>
+	<dd>{{vehicle.km}}</dd>
+</dl>
+
+<dl class="dl-horizontal">
+	<dt>NFE de Compra:</dt>
+	<dd>{{vehicle.nfe}}</dd>
+
+	<dt>Data de Compra:</dt>
+	<dd>{{vehicle.date_buy}}</dd>
+
+	<dt>Preço de Compra:</dt>
+	<dd>{{vehicle.price_buy}}</dd>
+
+	<dt>Total de Gastos:</dt>
+	<dd>{{vehicle.total_spend}}</dd>
+
+	<dt>Preço de Venda:</dt>
+	<dd>{{vehicle.price_shell}}</dd>
+
+	<dt>Adicionais:</dt>
+	<dd>{{vehicle.additional}}</dd>
+
+  <dt>Descrição de Gastos:</dt>
+	<dd>{{vehicle.description_spend}}</dd>
+</dl>
+
+<div id="actions" class="row">
+	<div class="col-md-12">
+	  <a href="/vehicle/edit/{{vehicle._id}}" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+		<a id="vehicle" onclick="del1()" name ="{{vehicle._id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Excluir</a>
+	  <a href="/vehicles" class="btn btn-default">Voltar</a>
+	</div>
+</div>
+</div>
+</div>
+{% endblock %}

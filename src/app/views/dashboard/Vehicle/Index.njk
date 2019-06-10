@@ -1,0 +1,56 @@
+{% extends "_layouts/dashboard.njk" %}
+{% block body %}
+<div class="container-form">
+<div class="table-vehicles">
+<h1>Lista de Carros: </h1>
+		<td class="actions text-right">
+			<a href="/vehicle" class="btn btn-sm btn-success"><i class="fas fa-plus"></i> Adicionar</a>
+		</td>
+  <table class="table table-hover">
+<thead>
+	<tr>
+		<th>Marca: </th>
+    <th>Modelo: </th>
+    <th>Placa: </th>
+    <th>Opções: </th>
+	</tr>
+</thead>
+<tbody>
+{% if (vehicles != 0) %}
+{% for vehicle in vehicles %}
+	<tr>
+		<td>{{vehicle.mark}}</td>
+    <td>{{vehicle.model}}</td>
+    <td>{{vehicle.plate}}</td>
+		<td class="actions text-right">
+    <a href="/vehicle/{{vehicle._id}}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
+		<a href="/vehicle/edit/{{vehicle._id}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar</a>
+		</td>
+	</tr>
+{% endfor %}
+{% else %}
+	<tr>
+		<td colspan="6">Nenhum registro encontrado.</td>
+	</tr>
+{% endif %}
+</tbody>
+</table>
+    <div class="paginate">
+    <a href="/vehicles?page={{pages.page -1}}" class="btn btn-sm btn-primary"
+    {% if (pages.page === 1) %}
+    disabled 
+    {% endif %}
+    
+    >Anterior</a>
+    <input type="text" value="{{pages.page}}" disabled>
+    <span>de</span>
+    <input type="text" value="{{pages.total}}" disabled>
+    <a  class="btn btn-sm btn-success" href="/vehicles?page={{pages.page +1}}"
+    {% if (pages.page === pages.total) %}
+    disabled 
+    {% endif %}
+    >Próxima</a>
+    </div>
+</div>
+</div>
+{% endblock %}

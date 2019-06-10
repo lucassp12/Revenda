@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const databaseConfig = require("./config/database");
 const path = require("path");
+const helmet = require("helmet");
 
 class App {
   constructor() {
@@ -14,6 +15,7 @@ class App {
     this.isDev = process.env.NODE_ENV !== "production";
 
     this.database();
+    this.security();
     this.middlewares();
     this.views();
     this.routes();
@@ -24,6 +26,11 @@ class App {
       useCreateIndex: true,
       useNewUrlParser: true
     });
+  }
+
+  security() {
+    this.express.use(helmet());
+    this.express.disable("x-powered-by");
   }
 
   middlewares() {

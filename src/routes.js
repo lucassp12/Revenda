@@ -65,4 +65,5 @@ routes.get("/vehicle", VehicleController.create);
 routes.post("/vehicle", VehicleController.store);
 routes.get("/vehicle/edit/:id", VehicleController.viewEdit);
 routes.post("/vehicle/edit/:id", VehicleController.update);
-routes.get("/vehicle/:id", VehicleController.delete);
+routes.get("/vehicle/:id", VehicleController.showView);
+routes.get("/vehicle/delete/:id", VehicleController.delete);

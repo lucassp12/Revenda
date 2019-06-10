@@ -43,10 +43,22 @@ $(function() {
     ]
   });
 });
-
 function del() {
   var id = document.getElementById("danger").name;
   if (confirm("Deseja mesmo excluir?")) {
     location.href = "/customer/ex/" + id;
   }
 }
+
+function del1() {
+  var id = document.getElementById("vehicle").name;
+  if (confirm("Deseja mesmo excluir?")) {
+    location.href = "/vehicle/delete/" + id;
+  }
+}
+
+$(".preco").mask("#.##0,00", { reverse: true });
+$(".ano").mask("####");
+$(".placa").mask("AAA-####");
+$(".renavam").mask("###########");
+$(".nfe").mask("###########");

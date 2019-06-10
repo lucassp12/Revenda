@@ -40,10 +40,6 @@ const Vehicle = new mongoose.Schema({
     type: String,
     required: true
   },
-  date_register: {
-    type: String,
-    required: true
-  },
   date_buy: {
     type: String,
     required: true
@@ -52,9 +48,8 @@ const Vehicle = new mongoose.Schema({
     type: String,
     required: true
   },
-  chassis: {
-    type: String,
-    required: true
+  total_spend: {
+    type: String
   },
   km: {
     type: String,
@@ -64,7 +59,7 @@ const Vehicle = new mongoose.Schema({
     type: String,
     required: true
   },
-  informations: {
+  additional: {
     type: String,
     required: true
   },
@@ -76,13 +71,11 @@ const Vehicle = new mongoose.Schema({
     type: String,
     required: true
   },
-  outgoing: {
-    type: String,
-    required: true
+  spend: {
+    type: String
   },
-  information_outgoing: {
-    type: String,
-    required: true
+  description_spend: {
+    type: String
   }
 });
 

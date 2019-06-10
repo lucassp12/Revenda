@@ -5,14 +5,14 @@
     <form
       class="form"
       method="post"
-      action="/vehicle"
+      action="/vehicle/edit/{{vehicle._id}}"
     >
       <h1>Cadastro de Veiculos:</h1>
       <hr />
       <div class="row">
         <div class="form-group col-md-2">
           <label for="mark">Marca: </label>
-          <select class="form-control" name="mark" required>
+          <select class="form-control" name="mark" value="{{vehicle.mark}}"required>
           {% if marks != 0%}
           {% for mark in marks %}
             <option value="{{mark.name}}">{{mark.name}}</option>
@@ -24,7 +24,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="mark">Categoria:</label>
-          <select class="form-control" name="category" required>
+          <select class="form-control" name="category" value="{{vehicle.mark}}" required>
           {% if categories != 0%}
           {% for category in categories %}
             <option value="{{category.name}}">{{category.name}}</option>
@@ -36,52 +36,52 @@
         </div>
         <div class="form-group col-md-4">
           <label for="campo2">Modelo:</label>
-          <input type="text" class="form-control" name="model" required/>
+          <input type="text" class="form-control" name="model" value="{{vehicle.model}}" required/>
         </div>
         <div class="form-group col-md-2">
           <label for="campo3">Ano Fabricação:</label>
-          <input type="text" class="ano form-control" name="year_manufacture" maxlength="4" required/>
+          <input type="text" class="ano form-control" name="year_manufacture" value="{{vehicle.year_manufacture}}"  maxlength="4" required/>
         </div>
         <div class="form-group col-md-2">
           <label for="campo3">Ano Modelo:</label>
-          <input type="text" class="ano form-control" name="year_model" maxlength="4" required />
+          <input type="text" class="ano form-control" name="year_model" value="{{vehicle.year_model}}" maxlength="4" required />
         </div>
       </div> 
       <div class="row">
         <div class="form-group col-md-2">
           <label for="campo1">Placa:</label>
-          <input type="text" class="placa form-control" name="plate" maxlength="7" required/>
+          <input type="text" class="placa form-control" name="plate" value="{{vehicle.plate}}" maxlength="7" required/>
         </div>
 
         <div class="form-group col-md-4">
           <label for="campo2">Renavam:</label>
-          <input type="text" class="renavam form-control" name="renavam" maxlength="11" required/>
+          <input type="text" class="renavam form-control" name="renavam" value="{{vehicle.renavam}}" maxlength="11" required/>
         </div>
         <div class="form-group col-md-2">
           <label for="campo1">NFE de Compra:</label>
-          <input type="text" class="nfe form-control" name="nfe_buy"  />
+          <input type="text" class="nfe form-control" name="nfe_buy" value="{{vehicle.nfe}}" />
         </div>
         <div class="form-group col-md-2">
           <label for="campo1">Data de Compra:</label>
-           <input type="text" class="form-control" id="calendario" name="date_buy"  required />
+           <input type="text" class="form-control" id="calendario" name="date_buy" value="{{vehicle.date_buy}}" required />
         </div>
         <div class="form-group col-md-2">
           <label for="campo1">Preço de Compra:</label>
-          <input type="text" class="preco form-control" name="price_buy" maxlength="11" required />
+          <input type="text" class="preco form-control" name="price_buy" maxlength="11" value="{{vehicle.price_buy}}" required />
         </div>
       </div>
       <div class="row"> 
         <div class="form-group col-md-2">
           <label for="campo2">Cor:</label>
-          <input type="text" class="form-control" name="color"  required />
+          <input type="text" class="form-control" name="color" value="{{vehicle.color}}"  required />
         </div>
          <div class="form-group col-md-2">
           <label for="campo3">Km:</label>
-          <input type="text" class="form-control" name="km"  />
+          <input type="text" class="form-control" name="km" value="{{vehicle.km}}" />
         </div>
          <div class="form-group col-md-2">
           <label for="campo4">Nº de Portas:</label>
-          <select class="form-control" name="number_doors"  required/>
+          <select class="form-control" name="number_doors" value="{{vehicle.number_doors}}"  required/>
           <option>2</option>
           <option>3</option>
           <option>4</option>
@@ -89,7 +89,7 @@
         </div>
          <div class="form-group col-md-2">
           <label for="campo4">Combustivel</label>
-          <select class="form-control" name="fuel" required />
+          <select class="form-control" name="fuel" value="{{vehicle.fuel}}" required />
             <option>Gasolina</option>
             <option>Alcool</option>
             <option>TotalFlex</option>
@@ -99,11 +99,11 @@
         </div>
         <div class="form-group col-md-2">
           <label for="campo1">Total de Gastos:</label>
-          <input type="text" class="preco form-control" name="total_spend" maxlength="11"  />
+          <input type="text" class="preco form-control" name="total_spend" value="{{vehicle.total_spend}}" maxlength="11"  />
         </div>
         <div class="form-group col-md-2">
           <label for="campo1">Preço de Venda:</label>
-          <input type="text" class="preco form-control" name="price_shell" maxlength="11" required />
+          <input type="text" class="preco form-control" name="price_shell" value="{{vehicle.price_shell}}" maxlength="11" required />
         </div>
       </div>
       <div class="row">
@@ -112,12 +112,12 @@
     <div class="row">
       <div class="form-group col-md-6">
       <label for="form7">Adicionais:</label>
-      <textarea id="form7" class="md-textarea form-control" name="additional" rows="5"></textarea>
+      <textarea id="form7" class="md-textarea form-control" name="additional" rows="5">{{vehicle.additional}}</textarea>
       </div>
 
       <div class="form-group col-md-6">
         <label for="form7">Descrição de Gastos:</label>
-        <textarea id="form7" class="md-textarea form-control" name="description_spend" rows="5"></textarea>
+        <textarea id="form7" class="md-textarea form-control" name="description_spend" rows="5">{{vehicle.description_spend}}</textarea>
       </div>
     </div>
 
