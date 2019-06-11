@@ -1,0 +1,53 @@
+{% extends "_layouts/dashboard.njk" %}
+{% block body %}
+<div class="container-form">
+<div class="table-sallers">
+<h1>Lista de Vendedores: </h1>
+		<td class="actions text-right">
+			<a href="/saller" class="btn btn-sm btn-success"><i class="fas fa-plus"></i> Adicionar</a>
+		</td>
+  <table class="table table-hover">
+<thead>
+	<tr>
+		<th>Nome Completo: </th>
+    <th>CPF: </th>
+	</tr>
+</thead>
+<tbody>
+{% if (sallers != 0) %}
+{% for saller in sallers %}
+	<tr>
+		<td>{{saller.name}}</td>
+    <td>{{saller.cpf}}</td>
+		<td class="actions text-right">
+    <a href="/saller/{{saller._id}}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
+		<a href="/saller/edit/{{saller._id}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar</a>
+		</td>
+	</tr>
+{% endfor %}
+{% else %}
+	<tr>
+		<td colspan="6">Nenhum registro encontrado.</td>
+	</tr>
+{% endif %}
+</tbody>
+</table>
+    <div class="paginate">
+    <a href="/sallers?page={{pages.page -1}}" class="btn btn-sm btn-primary"
+    {% if (pages.page === 1) %}
+    disabled 
+    {% endif %}
+    
+    >Anterior</a>
+    <input type="text" value="{{pages.page}}" disabled>
+    <span>de</span>
+    <input type="text" value="{{pages.total}}" disabled>
+    <a  class="btn btn-sm btn-success" href="/sallers?page={{pages.page +1}}"
+    {% if (pages.page === pages.total) %}
+    disabled 
+    {% endif %}
+    >Próxima</a>
+    </div>
+</div>
+</div>
+{% endblock %}

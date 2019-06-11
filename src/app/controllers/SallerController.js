@@ -1,0 +1,67 @@
+const Company = require("../models/Company");
+const Saller = require("../models/Saller");
+
+class SallerController {
+  async index(req, res) {
+    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const filters = {};
+    const options = {
+      page: req.query.page || 1,
+      limit: 8
+    };
+    const sallers = await Saller.paginate(filters, options);
+
+    return res.render("dashboard/Saller/Index", {
+      company,
+      sallers: sallers.docs,
+      pages: {
+        total: sallers.totalPages,
+        page: sallers.page
+      }
+    });
+  }
+  async viewEdit(req, res) {
+    const company = await Company.findById("5cf56c52e446d37414c7204e");
+
+    const saller = await Saller.findById(req.params.id);
+    return res.render("dashboard/Saller/SallerEdit", {
+      company,
+      saller
+    });
+  }
+  async create(req, res) {
+    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    return res.render("dashboard/Saller/SallerCreate", {
+      company
+    });
+  }
+
+  async store(req, res) {
+    await Saller.create(req.body);
+
+    return res.redirect("/sallers");
+  }
+  async update(req, res) {
+    await Saller.findByIdAndUpdate(
+      req.params.id,
+      { ...req.body },
+      {
+        new: true
+      }
+    );
+    return res.redirect("/sallers");
+  }
+  async delete(req, res) {
+    await Saller.findByIdAndRemove(req.params.id);
+
+    return res.redirect("/sallers");
+  }
+  async showView(req, res) {
+    const company = await Company.findById("5cf56c52e446d37414c7204e");
+
+    const saller = await Saller.findById(req.params.id);
+
+    return res.render("dashboard/Saller/SallerView", { company, saller });
+  }
+}
+module.exports = new SallerController();

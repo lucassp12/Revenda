@@ -1,0 +1,71 @@
+{% extends "_layouts/dashboard.njk" %}
+{% block body %}
+<div class="container-form">
+  <div class="form-saller">
+    <form
+      class="form"
+      method="post"
+      action="/saller/edit/{{saller._id}}"
+    >
+      <h1>Atualizar Vendedor:</h1>
+      <hr />
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="name">Nome Completo:</label>
+          <input type="text" onkeyup="this.value = this.value.toUpperCase();" class="form-control" name="name" value="{{saller.name}}" required />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="name">CPF:</label>
+          <input type="text" class="cpf form-control" name="cpf" value="{{saller.cpf}}" maxlength="14" required/>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="name">RG:</label>
+          <input type="text" class="rg form-control" name="rg" value="{{saller.rg}}" maxlength="12" required/>
+        </div>
+      </div> 
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label for="name">Endereço:</label>
+          <input type="text" class="form-control" name="address" value="{{saller.address}}" required />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="name">Número:</label>
+          <input type="text" class="number form-control" name="number" value="{{saller.number}}" maxlength="7" required/>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="name">Bairro:</label>
+          <input type="text" class="form-control" name="neighborhood" value="{{saller.neighborhood}}" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-3">
+          <label for="name">Cidade:</label>
+          <input type="text" class="form-control" name="city" value="{{saller.city}}" required/>
+        </div>
+        <div class="form-group col-md-1">
+          <label for="name">UF:</label>
+          <input type="text" onkeyup="this.value = this.value.toUpperCase();" class="form-control" name="uf" value="{{saller.uf}}" maxlength="2"  required/>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="name">CEP:</label>
+          <input type="text" class="cep form-control" name="zip_code" value="{{saller.zip_code}}" maxlength="9" required />
+        </div>
+        <div class="form-group col-md-3">
+          <label for="name">Data de Nascimento:</label>
+          <input type="text" class="birth form-control" name="birth_date" value="{{saller.birth_date}}" maxlength="10" required/>
+        </div>
+        <div class="form-group col-md-3">
+          <label for="name">Telefone:</label>
+          <input type="text" class="phone form-control" name="phone_number" value="{{saller.phone_number}}" maxlength="15" required/>
+        </div>
+      </div>    
+      <div id="actions" class="row">
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <a href="/sallers" class="btn btn-default">Cancelar</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

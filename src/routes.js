@@ -67,3 +67,13 @@ routes.get("/vehicle/edit/:id", VehicleController.viewEdit);
 routes.post("/vehicle/edit/:id", VehicleController.update);
 routes.get("/vehicle/:id", VehicleController.showView);
 routes.get("/vehicle/delete/:id", VehicleController.delete);
+
+/*--- Saller--*/
+const SallerController = require("./app/controllers/SallerController");
+routes.get("/sallers", SallerController.index);
+routes.get("/saller", SallerController.create);
+routes.post("/saller", SallerController.store);
+routes.get("/saller/edit/:id", SallerController.viewEdit);
+routes.get("/saller/:id", SallerController.showView);
+routes.post("/saller/edit/:id", SallerController.update);
+routes.get("/saller/delete/:id", SallerController.delete);

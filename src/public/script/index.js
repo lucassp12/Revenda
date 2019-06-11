@@ -57,8 +57,21 @@ function del1() {
   }
 }
 
+function del2() {
+  var id = document.getElementById("saller").name;
+  if (confirm("Deseja mesmo excluir?")) {
+    location.href = "/saller/delete/" + id;
+  }
+}
+
 $(".preco").mask("#.##0,00", { reverse: true });
 $(".ano").mask("####");
 $(".placa").mask("AAA-####");
 $(".renavam").mask("###########");
 $(".nfe").mask("###########");
+$(".birth").mask("##/##/####");
+$(".phone").mask("(##) #####-####");
+$(".cpf").mask("###.###.###-##");
+$(".rg").mask("########");
+$(".number").mask("#######");
+$(".cep").mask("#####-###");

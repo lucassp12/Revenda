@@ -1,0 +1,54 @@
+{% extends "_layouts/dashboard.njk" %}
+{% block body %}
+<div class="container-form">
+<div class="container-view">
+
+<h2>Vendedor, {{saller.name}}</h2>
+<hr>
+<dl class="dl-horizontal">
+	<dt>Nome Completo:</dt>
+	<dd>{{saller.name}}</dd>
+
+  	<dt>CPF:</dt>
+	<dd>{{saller.cpf}}</dd>
+
+	<dt>RG:</dt>
+	<dd>{{saller.rg}}</dd>
+
+	<dt>Data de Nascimento:</dt>
+	<dd>{{saller.birth_date}}</dd>
+
+	<dt>Telefone:</dt>
+	<dd>{{saller.phone_number}}</dd>
+</dl>
+
+<dl class="dl-horizontal">
+	<dt>Endereço:</dt>
+	<dd>{{saller.address}}</dd>
+
+	<dt>Número:</dt>
+	<dd>{{saller.number}}</dd>
+
+	<dt>Bairro:</dt>
+	<dd>{{saller.neighborhood}}</dd>
+
+	<dt>Cidade:</dt>
+	<dd>{{saller.city}}</dd>
+
+	<dt>UF:</dt>
+	<dd>{{saller.uf}}</dd>
+
+	<dt>CEP:</dt>
+	<dd>{{saller.zip_code}}</dd>
+</dl>
+
+<div id="actions" class="row">
+	<div class="col-md-12">
+	  <a href="/saller/edit/{{saller._id}}" class="btn btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+		<a id="saller" onclick="del2()" name ="{{saller._id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Excluir</a>
+	  <a href="/sallers" class="btn btn-default">Voltar</a>
+	</div>
+</div>
+</div>
+</div>
+{% endblock %}

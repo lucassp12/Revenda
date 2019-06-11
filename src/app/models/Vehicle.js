@@ -67,7 +67,7 @@ const Vehicle = new mongoose.Schema({
     type: String,
     required: true
   },
-  price_shell: {
+  price_sale: {
     type: String,
     required: true
   },
