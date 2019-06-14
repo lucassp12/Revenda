@@ -247,6 +247,9 @@ td {
 .table-vehicles th {
   text-align: center;
 }
+.venbtn {
+  float: right;
+}
 
 /* ---- Sallers ---*/
 .form-saller {
@@ -281,12 +284,6 @@ td {
 .table-sallers h1 {
   text-align: center;
 }
-width: 70%;
-height: 80%;
-background: #fff;
-padding: 20px;
-border-radius: 20px;
-margin-top: 20px;
 .table-sallers th {
   text-align: center;
 }

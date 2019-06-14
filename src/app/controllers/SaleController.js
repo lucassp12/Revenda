@@ -42,13 +42,14 @@ class SaleController {
     const vehicle = await Vehicle.findById(req.params.id);
     const saller = await Saller.findOne({ name: req.body.saller });
 
-    console.log(saller);
-    const sale = await Sale.create({ ...req.body, totals_sale: +1 });
+    await Sale.create({ ...req.body, totals_sale: +1 });
 
     saller.number_sales = saller.number_sales + 1;
     vehicle.sold = true;
     await saller.save();
     await vehicle.save();
+
+    return res.redirect("/sales");
   }
   async soldView(req, res) {
     const company = await Company.findById("5cf56c52e446d37414c7204e");
@@ -58,8 +59,6 @@ class SaleController {
       limit: 8
     };
     const sales = await Sale.paginate(filters, options);
-
-    console.log(sales);
 
     return res.render("dashboard/Sale/sold", {
       company,
@@ -79,6 +78,11 @@ class SaleController {
       company,
       sale
     });
+  }
+  async destroy(req, res) {
+    await Sale.findByIdAndRemove(req.params.id);
+
+    return res.json("ok");
   }
 }
 

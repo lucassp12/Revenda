@@ -61,6 +61,7 @@ routes.get("/mark/:id", MarkController.delete);
 /*--- Vehicles---*/
 const VehicleController = require("./app/controllers/VehicleController");
 routes.get("/vehicles", VehicleController.index);
+routes.get("/vehicles/solds", VehicleController.soldsView);
 routes.get("/vehicle", VehicleController.create);
 routes.post("/vehicle", VehicleController.store);
 routes.get("/vehicle/edit/:id", VehicleController.viewEdit);
@@ -85,3 +86,4 @@ routes.get("/sale/vehicle/:id", SaleController.createView);
 routes.post("/sale/vehicle/:id", SaleController.store);
 routes.get("/sales", SaleController.soldView);
 routes.get("/sale/:id", SaleController.saleView);
+routes.delete("/sale/del/:id", SaleController.destroy);

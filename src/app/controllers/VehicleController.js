@@ -6,7 +6,9 @@ const Category = require("../models/Category");
 class VehicleController {
   async index(req, res) {
     const company = await Company.findById("5cf56c52e446d37414c7204e");
-    const filters = {};
+    const filters = {
+      sold: false
+    };
     const options = {
       page: req.query.page || 1,
       limit: 8
@@ -22,6 +24,28 @@ class VehicleController {
       }
     });
   }
+
+  async soldsView(req, res) {
+    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const filters = {
+      sold: true
+    };
+    const options = {
+      page: req.query.page || 1,
+      limit: 8
+    };
+    const vehicle = await Vehicle.paginate(filters, options);
+
+    return res.render("dashboard/Vehicle/VehiclesSolds", {
+      company,
+      vehicles: vehicle.docs,
+      pages: {
+        total: vehicle.totalPages,
+        page: vehicle.page
+      }
+    });
+  }
+
   async viewEdit(req, res) {
     const company = await Company.findById("5cf56c52e446d37414c7204e");
     const mark = await Mark.find();
