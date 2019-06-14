@@ -37,7 +37,7 @@ class SallerController {
   }
 
   async store(req, res) {
-    await Saller.create(req.body);
+    await Saller.create({ ...req.body, number_sales: 0 });
 
     return res.redirect("/sallers");
   }

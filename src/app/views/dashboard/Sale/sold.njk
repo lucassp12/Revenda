@@ -1,0 +1,56 @@
+{% extends "_layouts/dashboard.njk" %}
+{% block body %}
+<div class="container-form">
+<div class="table-sales">
+<h1>Histórico de Vendas: </h1>
+  <table class="table table-hover">
+<thead>
+	<tr>
+    <th>Data: </th>
+		<th>Veículo: </th>
+    <th>Cliente: </th>
+    <th>Vendedor: </th>
+    <th>Preço: </th>
+    <th>Opções: </th>
+	</tr>
+</thead>
+<tbody>
+{% if (sales != 0) %}
+{% for sale in sales %}
+	<tr>
+    <td>{{sale.date}}</td>
+    <td>{{sale.vehicle}}</td>
+    <td>{{sale.customer}}</td>
+    <td>{{sale.saller}}</td>
+    <td>{{sale.price}}</td>
+		<td class="actions text-right">
+    <a href="/sale/{{sale._id}}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
+		</td>
+	</tr>
+{% endfor %}
+{% else %}
+	<tr>
+		<td colspan="6">Nenhum registro encontrado.</td>
+	</tr>
+{% endif %}
+</tbody>
+</table>
+    <div class="paginate">
+    <a href="/sales?page={{pages.page -1}}" class="btn btn-sm btn-primary"
+    {% if (pages.page === 1) %}
+    disabled 
+    {% endif %}
+    
+    >Anterior</a>
+    <input type="text" value="{{pages.page}}" disabled>
+    <span>de</span>
+    <input type="text" value="{{pages.total}}" disabled>
+    <a  class="btn btn-sm btn-success" href="/sales?page={{pages.page +1}}"
+    {% if (pages.page === pages.total) %}
+    disabled 
+    {% endif %}
+    >Próxima</a>
+    </div>
+</div>
+</div>
+{% endblock %}

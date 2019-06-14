@@ -77,3 +77,11 @@ routes.get("/saller/edit/:id", SallerController.viewEdit);
 routes.get("/saller/:id", SallerController.showView);
 routes.post("/saller/edit/:id", SallerController.update);
 routes.get("/saller/delete/:id", SallerController.delete);
+
+/*--- Sale--*/
+const SaleController = require("./app/controllers/SaleController");
+routes.get("/sale", SaleController.index);
+routes.get("/sale/vehicle/:id", SaleController.createView);
+routes.post("/sale/vehicle/:id", SaleController.store);
+routes.get("/sales", SaleController.soldView);
+routes.get("/sale/:id", SaleController.saleView);

@@ -76,6 +76,10 @@ const Vehicle = new mongoose.Schema({
   },
   description_spend: {
     type: String
+  },
+  sold: {
+    type: Boolean,
+    default: false
   }
 });
 

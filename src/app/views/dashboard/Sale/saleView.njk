@@ -1,0 +1,35 @@
+{% extends "_layouts/dashboard.njk" %}
+{% block body %}
+<div class="container-form">
+<div class="sale-view">
+<h2>{{sale.vehicle}}</h2>
+<hr>
+<dl class="dl-horizontal">
+	<dt>Data:</dt>
+	<dd>{{sale.date}}</dd>
+
+  <dt>Veiculo:</dt>
+	<dd>{{sale.vehicle}}</dd>
+
+	<dt>Cliente:</dt>
+	<dd>{{sale.customer}}</dd>
+
+	<dt>Vendedor:</dt>
+	<dd>{{sale.saller}}</dd>
+
+	<dt>Preço:</dt>
+	<dd>{{sale.price}}</dd>
+</dl>
+
+<dl class="dl-horizontal">
+	<dt>Informações:</dt>
+	<dd>{{sale.information}}</dd>
+</dl>
+<div id="actions" class="row">
+	<div class="col-md-12">
+	  <a href="/sales" class="btn btn-default">Voltar</a>
+	</div>
+</div>
+</div>
+</div>
+{% endblock %}
