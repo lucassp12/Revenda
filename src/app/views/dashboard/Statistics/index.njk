@@ -1,0 +1,72 @@
+{% extends "_layouts/dashboard.njk" %}
+{% block body %}
+<div class="container-statistic">
+
+  <div class="buy statistic">
+    <h2>Total de Compras:</h2>
+    <h2 class="preco">{{statistics.total_purchases}}</h2>
+  </div>
+
+  <div class="spend statistic">
+  <h2>Total de Despesas:</h2>
+  <h2 class="preco">{{statistics.total_expenses}}</h2>
+  </div>
+
+  <div class="sale statistic">
+  <h2>Total Valor de Venda:</h2>
+  <h2 class="preco">{{statistics.total_sales}}</h2>
+  </div>
+
+    <div class="lucro statistic">
+  <h2>Lucro Estimado:</h2>
+  <h2 class="preco">{{statistics.profit}}</h2>
+  </div>
+<div class="top-sale statistic">
+ <h2>Top Vendas:</h2>
+  <table class="top-vendas table table-hover">
+<thead>
+	<tr>
+    <th>Nome:</th>
+    <th>Vendas:</th>
+	</tr>
+</thead>
+<tbody>
+  {% if (saller != 0) %}
+	<tr>
+		<td>{{saller.name}}</td>
+    <td>{{saller.number_sales}}</td>
+	</tr>
+{% else %}
+	<tr>
+		<td colspan="6">Nenhum registro encontrado.</td>
+	</tr>
+{% endif %}
+</tbody>
+</table>
+  </div>
+  <div class="vehicle statistic">
+  <h2>Veículo de Maior Valor:</h2>
+  <table class="top-vendas table table-hover">
+<thead>
+	<tr>
+    <th>Modelo:</th>
+    <th>Valor:</th>
+	</tr>
+</thead>
+<tbody>
+  {% if (vehicleValuable != 0) %}
+	<tr>
+		<td>{{vehicleValuable.model}}</td>
+    <td class="preco">{{vehicleValuable.price_sale}}</td>
+	</tr>
+{% else %}
+	<tr>
+		<td colspan="6">Nenhum registro encontrado.</td>
+	</tr>
+{% endif %}
+</tbody>
+</table>
+  </div>
+
+</div>
+{% endblock %}

@@ -3,12 +3,12 @@ const Company = require("../models/Company");
 
 class CustomerController {
   async index(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
 
     return res.render("dashboard/Customer/CustomerCreate", { company });
   }
   async show(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const filters = {};
     const options = {
       page: req.query.page || 1,
@@ -26,7 +26,7 @@ class CustomerController {
     });
   }
   async showView(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
 
     const customer = await Customer.findById(req.params.id);
 
@@ -38,7 +38,7 @@ class CustomerController {
     res.redirect("/customers");
   }
   async viewEdit(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
 
     const customer = await Customer.findById(req.params.id);
 

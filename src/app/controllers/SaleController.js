@@ -6,7 +6,7 @@ const Sale = require("../models/Sale");
 
 class SaleController {
   async index(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const filters = {
       sold: false
     };
@@ -26,7 +26,7 @@ class SaleController {
     });
   }
   async createView(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const vehicle = await Vehicle.findById(req.params.id);
     const customers = await Customer.find();
     const sallers = await Saller.find();
@@ -52,7 +52,7 @@ class SaleController {
     return res.redirect("/sales");
   }
   async soldView(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const filters = {};
     const options = {
       page: req.query.page || 1,
@@ -70,7 +70,7 @@ class SaleController {
     });
   }
   async saleView(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
 
     const sale = await Sale.findById(req.params.id);
 

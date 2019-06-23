@@ -326,3 +326,39 @@ td {
   border-radius: 20px;
   margin-top: 20px;
 }
+
+/* ---- Statistic ---*/
+.container-statistic {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.statistic {
+  margin: 10px;
+  display: block;
+  border: none;
+  border-radius: 10px;
+  width: 30%;
+  height: 200px;
+  text-align: center;
+}
+.buy {
+  background: #c0ff14;
+}
+
+.spend {
+  background: #ff4242;
+}
+
+.sale {
+  background: #427bff;
+}
+.lucro {
+  background: #41c22e;
+}
+.top-sale {
+  background: #ffb080;
+}
+.vehicle {
+  background: #59a696;
+}

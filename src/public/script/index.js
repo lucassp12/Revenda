@@ -64,7 +64,18 @@ function del2() {
   }
 }
 
-$(".preco").mask("#.##0,00", { reverse: true });
+$(".preco").each(function() {
+  const element = $(this);
+  const value = element.val();
+
+  element.val(formatReal(value));
+  element.mask("#.##0,00", { reverse: true });
+});
+
+$("a[disabled]").click(function(event) {
+  event.preventDefault();
+});
+
 $(".ano").mask("####");
 $(".placa").mask("AAA-####");
 $(".renavam").mask("###########");
@@ -75,3 +86,30 @@ $(".cpf").mask("###.###.###-##");
 $(".rg").mask("########");
 $(".number").mask("#######");
 $(".cep").mask("#####-###");
+
+var options = {
+  onKeyPress: function(cpfcnpj, e, field, options) {
+    var masks = ["000.000.000-000", "00.000.000/0000-00"];
+    var mask = cpfcnpj.length > 14 ? masks[1] : masks[0];
+    $(".cpfcnpj").mask(mask, options);
+  }
+};
+
+$(".cpfcnpj").mask("000.000.000-000", options);
+
+function formatReal(int) {
+  var tmp = int + "";
+  tmp = tmp.replace(/([0-9]{2})$/g, ",$1");
+  if (tmp.length > 6) tmp = tmp.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+
+  return tmp;
+}
+
+function formatNumberToCurrency(value) {
+  return Number(value).replace(".", ",");
+}
+
+function mudarCampo(id, value) {
+  var total = formatReal(value);
+  document.getElementById(id).innerHTML = total;
+}

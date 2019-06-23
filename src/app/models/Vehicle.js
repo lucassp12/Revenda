@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const mongoosePaginate = require("mongoose-paginate-v2");
+const format = require("../helpers/format");
 
 const Vehicle = new mongoose.Schema({
   mark: {
@@ -11,11 +12,11 @@ const Vehicle = new mongoose.Schema({
     required: true
   },
   year_manufacture: {
-    type: String,
+    type: Number,
     required: true
   },
   year_model: {
-    type: String,
+    type: Number,
     required: true
   },
   plate: {
@@ -30,7 +31,7 @@ const Vehicle = new mongoose.Schema({
     type: String
   },
   date_buy: {
-    type: String,
+    type: Date,
     required: true
   },
   fuel: {
@@ -40,23 +41,20 @@ const Vehicle = new mongoose.Schema({
     type: String,
     required: true
   },
-  date_buy: {
-    type: String,
-    required: true
-  },
   color: {
     type: String,
     required: true
   },
-  total_spend: {
-    type: String
+  total_expenses: {
+    type: Number,
+    required: true
   },
   km: {
-    type: String,
+    type: Number,
     required: true
   },
   number_doors: {
-    type: String,
+    type: Number,
     required: true
   },
   additional: {
@@ -64,15 +62,12 @@ const Vehicle = new mongoose.Schema({
     required: true
   },
   price_buy: {
-    type: String,
+    type: Number,
     required: true
   },
   price_sale: {
-    type: String,
+    type: Number,
     required: true
-  },
-  spend: {
-    type: String
   },
   description_spend: {
     type: String
@@ -81,6 +76,12 @@ const Vehicle = new mongoose.Schema({
     type: Boolean,
     default: false
   }
+});
+
+Vehicle.virtual("date_buy_formatted").get(function() {
+  return this.date_buy !== null
+    ? format.formatDateISOToBR(this.date_buy)
+    : this.date_buy;
 });
 
 Vehicle.plugin(mongoosePaginate);

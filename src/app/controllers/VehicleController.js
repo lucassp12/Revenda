@@ -2,16 +2,18 @@ const Company = require("../models/Company");
 const Vehicle = require("../models/Vehicle");
 const Mark = require("../models/Mark");
 const Category = require("../models/Category");
+const format = require("../helpers/format");
+const Statistics = require("../models/Statistics");
 
 class VehicleController {
   async index(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const filters = {
       sold: false
     };
     const options = {
       page: req.query.page || 1,
-      limit: 8
+      limit: 2
     };
     const vehicle = await Vehicle.paginate(filters, options);
 
@@ -26,7 +28,7 @@ class VehicleController {
   }
 
   async soldsView(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const filters = {
       sold: true
     };
@@ -47,11 +49,12 @@ class VehicleController {
   }
 
   async viewEdit(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const mark = await Mark.find();
     const category = await Category.find();
 
     const vehicle = await Vehicle.findById(req.params.id);
+
     return res.render("dashboard/Vehicle/VehicleEdit", {
       company,
       vehicle,
@@ -59,8 +62,9 @@ class VehicleController {
       categories: category
     });
   }
+
   async create(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const mark = await Mark.find();
     const category = await Category.find();
     return res.render("dashboard/Vehicle/VehicleCreate", {
@@ -71,20 +75,52 @@ class VehicleController {
   }
 
   async store(req, res) {
-    await Vehicle.create(req.body);
+    let { price_sale, price_buy, total_expenses, date_buy } = req.body;
+    const statistics = await Statistics.findOne();
+
+    price_sale = parseInt(price_sale.replace(/[\D]+/g, ""));
+    price_buy = parseInt(price_buy.replace(/[\D]+/g, ""));
+    total_expenses = parseInt(total_expenses.replace(/[\D]+/g, ""));
+    date_buy = format.formatDateBRToISO(date_buy);
+
+    await Vehicle.create({
+      ...req.body,
+      price_sale,
+      price_buy,
+      total_expenses,
+      date_buy
+    });
+
+    statistics.total_purchases += price_buy;
+    statistics.total_expenses += price_sale;
+    statistics.total_sales += total_expenses;
+
+    await statistics.save();
 
     return res.redirect("/vehicles");
   }
+
   async update(req, res) {
-    await Vehicle.findByIdAndUpdate(
-      req.params.id,
-      { ...req.body },
-      {
-        new: true
-      }
-    );
+    let { price_sale, price_buy, total_expenses, date_buy } = req.body;
+
+    price_sale = parseInt(price_sale.replace(/[\D]+/g, ""));
+    price_buy = parseInt(price_buy.replace(/[\D]+/g, ""));
+    total_expenses = parseInt(total_expenses.replace(/[\D]+/g, ""));
+    date_buy = format.formatDateBRToISO(date_buy);
+
+    const data = {
+      ...req.body,
+      price_sale,
+      price_buy,
+      total_expenses,
+      date_buy
+    };
+
+    await Vehicle.findByIdAndUpdate(req.params.id, data);
+
     return res.redirect("/vehicles");
   }
+
   async delete(req, res) {
     await Vehicle.findByIdAndRemove(req.params.id);
 
@@ -92,7 +128,7 @@ class VehicleController {
   }
 
   async showView(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
 
     const vehicle = await Vehicle.findById(req.params.id);
 

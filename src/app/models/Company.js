@@ -45,6 +45,15 @@ const Company = new mongoose.Schema({
     type: String,
     required: true
   },
+  total_purchases: {
+    type: Number
+  },
+  total_expenses: {
+    type: Number
+  },
+  total_sales: {
+    type: Number
+  },
   createdAt: {
     type: Date,
     default: Date.now

@@ -3,7 +3,7 @@ const Category = require("../models/Category");
 
 class CategoryController {
   async index(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const filters = {};
     const options = {
       page: req.query.page || 1,
@@ -21,7 +21,7 @@ class CategoryController {
     });
   }
   async viewEdit(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
 
     const category = await Category.findById(req.params.id);
     return res.render("dashboard/Category/CategoryEdit", {
@@ -30,7 +30,7 @@ class CategoryController {
     });
   }
   async create(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     return res.render("dashboard/Category/CategoryCreate", {
       company
     });

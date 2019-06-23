@@ -14,12 +14,13 @@ const UserSchema = new mongoose.Schema({
     unique: true,
     lowercase: true
   },
-  token: {
-    type: String
-  },
   password: {
     type: String,
     required: true
+  },
+  admin: {
+    type: Boolean,
+    default: false
   },
   createdAt: {
     type: Date,

@@ -3,7 +3,7 @@ const Saller = require("../models/Saller");
 
 class SallerController {
   async index(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const filters = {};
     const options = {
       page: req.query.page || 1,
@@ -21,7 +21,7 @@ class SallerController {
     });
   }
   async viewEdit(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
 
     const saller = await Saller.findById(req.params.id);
     return res.render("dashboard/Saller/SallerEdit", {
@@ -30,7 +30,7 @@ class SallerController {
     });
   }
   async create(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     return res.render("dashboard/Saller/SallerCreate", {
       company
     });
@@ -57,7 +57,7 @@ class SallerController {
     return res.redirect("/sallers");
   }
   async showView(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
 
     const saller = await Saller.findById(req.params.id);
 

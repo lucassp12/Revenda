@@ -16,6 +16,8 @@ class SessionController {
       return res.redirect("/");
     }
     req.session.user = user;
+
+    console.log(req.session.user.admin);
     return res.redirect("/dashboard");
   }
 }

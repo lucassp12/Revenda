@@ -12,11 +12,15 @@
       <div class="row">
         <div class="form-group col-md-2">
           <label for="mark">Marca: </label>
-          <select class="form-control" name="mark" value="{{vehicle.mark}}"required>
+          <select class="form-control" name="mark" required>
           {% if marks != 0%}
-          {% for mark in marks %}
-            <option value="{{mark.name}}">{{mark.name}}</option>
-          {% endfor %}
+            {% for mark in marks %}
+              {% if vehicle.mark == mark.name %}
+                <option value="{{mark.name}}" selected>{{mark.name}}</option>
+              {% else %}
+                <option value="{{mark.name}}">{{mark.name}}</option>
+              {% endif %}
+            {% endfor %}
           {% else %}
             <option disabled>Adicione</option>
           {% endif %}
@@ -24,7 +28,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="mark">Categoria:</label>
-          <select class="form-control" name="category" value="{{vehicle.mark}}" required>
+          <select class="form-control" name="category" value="{{vehicle.category}}" required>
           {% if categories != 0%}
           {% for category in categories %}
             <option value="{{category.name}}">{{category.name}}</option>
@@ -59,11 +63,11 @@
         </div>
         <div class="form-group col-md-2">
           <label for="campo1">NFE de Compra:</label>
-          <input type="text" class="nfe form-control" name="nfe_buy" value="{{vehicle.nfe}}" />
+          <input type="text" class="nfe form-control" name="nfe_buy" value="{{nfe_buy}}" />
         </div>
         <div class="form-group col-md-2">
           <label for="campo1">Data de Compra:</label>
-           <input type="text" class="form-control" id="calendario" name="date_buy" value="{{vehicle.date_buy}}" required />
+           <input type="text" class="form-control" id="calendario" name="date_buy" value="{{vehicle.date_buy_formatted}}" required />
         </div>
         <div class="form-group col-md-2">
           <label for="campo1">Preço de Compra:</label>
@@ -100,7 +104,7 @@
         </div>
         <div class="form-group col-md-2">
           <label for="campo1">Total de Gastos:</label>
-          <input type="text" class="preco form-control" name="total_spend" value="{{vehicle.total_spend}}" maxlength="11"  />
+          <input type="text" class="preco form-control" name="total_expenses" value="{{vehicle.total_expenses}}" maxlength="11"  />
         </div>
         <div class="form-group col-md-2">
           <label for="campo1">Preço de Venda:</label>

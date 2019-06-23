@@ -3,7 +3,7 @@ const Mark = require("../models/Mark");
 
 class MarkController {
   async index(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     const filters = {};
     const options = {
       page: req.query.page || 1,
@@ -21,7 +21,7 @@ class MarkController {
     });
   }
   async viewEdit(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
 
     const mark = await Mark.findById(req.params.id);
     return res.render("dashboard/Mark/MarkEdit", {
@@ -30,7 +30,7 @@ class MarkController {
     });
   }
   async create(req, res) {
-    const company = await Company.findById("5cf56c52e446d37414c7204e");
+    const company = await Company.findOne();
     return res.render("dashboard/Mark/MarkCreate", {
       company
     });

@@ -21,14 +21,17 @@ const SessionController = require("./app/controllers/SessionController");
 routes.post("/login", SessionController.store);
 
 routes.use(authMiddeware);
+
 const CompanyController = require("./app/controllers/CompanyController");
+
 /*-- DashBoard --*/
-routes.get("/dashboard", CompanyController.index);
+const StatisticsController = require("./app/controllers/StatisticsController");
+routes.get("/dashboard", StatisticsController.index);
 
 /*--- Company ---*/
-routes.get("/company", CompanyController.create);
-routes.post("/company", upload.single("logo"), CompanyController.update);
-module.exports = routes;
+routes.get("/company/:id", CompanyController.create);
+routes.post("/company/:id", upload.single("logo"), CompanyController.update);
+routes.delete("/company/:id", CompanyController.destroy);
 
 /*--- Customer ---*/
 const CustomerController = require("./app/controllers/CustomerController");
@@ -87,3 +90,14 @@ routes.post("/sale/vehicle/:id", SaleController.store);
 routes.get("/sales", SaleController.soldView);
 routes.get("/sale/:id", SaleController.saleView);
 routes.delete("/sale/del/:id", SaleController.destroy);
+
+const authAdminMiddeware = require("./app/middlewares/authAdmin");
+routes.use(authAdminMiddeware);
+
+routes.get("/company/create", function(req, res) {
+  return res.render("dashboard/companyCreate");
+});
+routes.post("/company/create", upload.single("logo"), CompanyController.store);
+routes.post("/statistics", StatisticsController.store);
+
+module.exports = routes;

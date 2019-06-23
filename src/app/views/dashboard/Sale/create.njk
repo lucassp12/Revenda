@@ -12,7 +12,7 @@
       <div class="row">
         <div class="form-group col-md-12">
           <label for="vehicle">Veiculo:</label>
-          <input type="text" class="form-control" value="{{vehicle.model}} - {{vehicle.plate}}" name="vehicle"/>
+          <input type="text" class="form-control" value="{{vehicle.model}} - {{vehicle.plate}}" name="vehicle" readonly/>
         </div>
       </div> 
       <div class="row">
@@ -46,7 +46,7 @@
       <div class="row">
         <div class="form-group col-md-6">
           <label for="price">Preço:</label>
-          <input type="text" class="form-control" value="{{vehicle.price_sale}}" name="price"/>
+          <input type="text" class="preco form-control" value="{{vehicle.price_sale}}" name="price" readonly/>
         </div>
          <div class="form-group col-md-6">
           <label for="date">Data da Venda:</label>

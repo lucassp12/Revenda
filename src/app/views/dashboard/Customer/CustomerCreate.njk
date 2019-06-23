@@ -12,36 +12,36 @@
       <div class="row">
         <div class="form-group col-md-12">
           <label for="name">Nome Completo:</label>
-          <input type="text" class="form-control" name="name" />
+          <input type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase();" name="name" required/>
         </div>
       </div>  
       <div class="row">
         <div class="form-group col-md-10">
           <label for="campo1">Endereço:</label>
-          <input type="text" class="form-control" name="address" />
+          <input type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase();" name="address" required/>
         </div>
 
         <div class="form-group col-md-2">
           <label for="campo2">Número:</label>
-          <input type="text" class="form-control" name="number"  />
+          <input type="text" class="number form-control"  onkeyup="this.value = this.value.toUpperCase();" name="number" maxlength="7" required/>
         </div>
       </div>
       <div class="row"> 
         <div class="form-group col-md-4">
           <label for="campo1">Bairro:</label>
-          <input type="text" class="form-control" name="neighborhood"/>
+          <input type="text" class="form-control" onkeyup="this.value = this.value.toUpperCase();" name="neighborhood" required/>
         </div>
         <div class="form-group col-md-4">
           <label for="campo2">Cidade:</label>
-          <input type="text" class="form-control" name="city"  />
+          <input type="text" class="form-control" name="city" onkeyup="this.value = this.value.toUpperCase();"  />
         </div>
          <div class="form-group col-md-2">
           <label for="campo3">UF:</label>
-          <input type="text" class="form-control" name="state"  />
+          <input type="text" class="form-control" name="state" onkeyup="this.value = this.value.toUpperCase();" maxlength="2" required />
         </div>
          <div class="form-group col-md-2">
           <label for="campo4">Cep:</label>
-          <input type="text" class="form-control" name="zip_code"  />
+          <input type="text" class="cep form-control" name="zip_code" maxlength="9" required />
         </div>
       </div>
 
@@ -58,33 +58,33 @@
         </div>
         <div class="form-group col-md-4">
           <label for="campo3">CPF/CNPJ</label>
-          <input id="cpfcnpj" type="text" class="form-control" name="cpf_cnpj" />
+          <input id="cpfcnpj" type="text" class="cpfcnpj form-control" name="cpf_cnpj" />
         </div>
       </div>
       <div class="row">
         <div class="form-group col-md-3">
           <label for="campo1">Carteira de identidade (RG)</label>
-          <input type="text" class="form-control" name="rg"  />
+          <input type="text" class="rg form-control" name="rg" maxlength="12" required/>
         </div>
 
         <div class="form-group col-md-3">
           <label for="campo2">Orgão emissor(RG): </label>
-          <input type="text" class="form-control" name="o_rg"  />
+          <input type="text" class="form-control" name="o_rg" onkeyup="this.value = this.value.toUpperCase();" maxlength="2"  />
         </div>
 
         <div class="form-group col-md-3">
-          <label for="campo3">Data: </label>
-          <input type="text" class="form-control" id="calendario" name="birth_date" />
+          <label for="campo3">Data de Nascimento: </label>
+          <input type="text" class="form-control" id="calendario" name="birth_date" required/>
         </div>
          <div class="form-group col-md-3">
           <label for="campo4">Telefone: </label>
-          <input type="text" class="form-control" name="phone_number"  />
+          <input type="text" class="phone form-control" name="phone_number" maxlength="15" required />
         </div>
       </div>
     <div class="row">
       <div class="form-group col-md-12">
         <label for="form7">Adicionais: </label>
-        <textarea id="form7" class="md-textarea form-control" name="information" rows="5"></textarea>
+        <textarea id="form7" class="md-textarea form-control" onkeyup="this.value = this.value.toUpperCase();" name="information" rows="5"></textarea>
       </div>
     </div>
 
