@@ -76,6 +76,11 @@ $("a[disabled]").click(function(event) {
   event.preventDefault();
 });
 
+$(".pesquisar").click(function(event) {
+  const pesquisa = document.querySelector(".pesquisas").value;
+  window.location.href = "/vehicles?pesquisa=" + pesquisa;
+});
+
 $(".ano").mask("####");
 $(".placa").mask("AAA-####");
 $(".renavam").mask("###########");

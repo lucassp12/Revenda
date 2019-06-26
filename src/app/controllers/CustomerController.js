@@ -33,6 +33,12 @@ class CustomerController {
     return res.render("dashboard/Customer/CustomerView", { company, customer });
   }
   async store(req, res) {
+    const customer = await Customer.findOne({ cpf_cnpj: req.body.cpf_cnpj });
+
+    if (customer) {
+      req.flash("error", "CPF/CNPJ já Cadastrado!");
+      return res.redirect("/customer");
+    }
     await Customer.create(req.body);
 
     res.redirect("/customers");

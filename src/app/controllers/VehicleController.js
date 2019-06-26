@@ -11,9 +11,12 @@ class VehicleController {
     const filters = {
       sold: false
     };
+    if (req.query.pesquisa) {
+      filters.model = new RegExp(req.query.pesquisa, "i");
+    }
     const options = {
       page: req.query.page || 1,
-      limit: 2
+      limit: 10
     };
     const vehicle = await Vehicle.paginate(filters, options);
 
@@ -32,12 +35,14 @@ class VehicleController {
     const filters = {
       sold: true
     };
+    if (req.query.pesquisa) {
+      filters.model = new RegExp(req.query.pesquisa, "i");
+    }
     const options = {
       page: req.query.page || 1,
       limit: 8
     };
     const vehicle = await Vehicle.paginate(filters, options);
-
     return res.render("dashboard/Vehicle/VehiclesSolds", {
       company,
       vehicles: vehicle.docs,
@@ -75,6 +80,14 @@ class VehicleController {
   }
 
   async store(req, res) {
+    const vehicle = await Vehicle.findOne({ renavam: req.body.renavam });
+
+    if (vehicle) {
+      console.log("cadastrado");
+      req.flash("error", "Veículo já Cadastrado!");
+      return res.redirect("/vehicle");
+    }
+
     let { price_sale, price_buy, total_expenses, date_buy } = req.body;
     const statistics = await Statistics.findOne();
 

@@ -3,6 +3,13 @@ const routes = express.Router();
 const multerConfig = require("./config/multer");
 const upload = require("multer")(multerConfig);
 
+routes.use((req, res, next) => {
+  res.locals.flashSucess = req.flash("success");
+  res.locals.flashError = req.flash("error");
+
+  return next();
+});
+
 const authMiddeware = require("./app/middlewares/auth");
 
 const FileController = require("./app/controllers/FileController");
@@ -92,9 +99,10 @@ routes.get("/sale/:id", SaleController.saleView);
 routes.delete("/sale/del/:id", SaleController.destroy);
 
 const authAdminMiddeware = require("./app/middlewares/authAdmin");
+
 routes.use(authAdminMiddeware);
 
-routes.get("/company/create", function(req, res) {
+routes.get("/companyCreate", function(req, res) {
   return res.render("dashboard/companyCreate");
 });
 routes.post("/company/create", upload.single("logo"), CompanyController.store);
