@@ -10,6 +10,11 @@ class CustomerController {
   async show(req, res) {
     const company = await Company.findOne();
     const filters = {};
+
+    if (req.query.pesquisa) {
+      filters.name = new RegExp(req.query.pesquisa, "i");
+    }
+
     const options = {
       page: req.query.page || 1,
       limit: 8

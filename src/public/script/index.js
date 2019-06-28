@@ -77,8 +77,12 @@ $("a[disabled]").click(function(event) {
 });
 
 $(".pesquisar").click(function(event) {
+  const select = document
+    .querySelector(".select")
+    .value.split(":")
+    .join("=");
   const pesquisa = document.querySelector(".pesquisas").value;
-  window.location.href = "/vehicles?pesquisa=" + pesquisa;
+  location.href = "?" + select + pesquisa;
 });
 
 $(".ano").mask("####");

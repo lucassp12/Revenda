@@ -1,7 +1,7 @@
 * {
   padding: 0;
   margin: 0;
-  font-family: "MontSerrat", Helvetica, sans-serif;
+  font-family: sans-serif;
 }
 a {
   text-decoration: none;
@@ -364,4 +364,10 @@ td {
 }
 .center {
   display: inline-block;
+}
+
+.select {
+  width: 110px;
+  margin-right: 0;
+  height: 32px;
 }

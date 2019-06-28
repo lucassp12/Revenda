@@ -11,12 +11,21 @@ class VehicleController {
     const filters = {
       sold: false
     };
-    if (req.query.pesquisa) {
-      filters.model = new RegExp(req.query.pesquisa, "i");
+
+    if (req.query.Marca) {
+      filters.mark = new RegExp(req.query.Marca, "i");
+    }
+
+    if (req.query.model) {
+      filters.model = new RegExp(req.query.model, "i");
+    }
+
+    if (req.query.Placa) {
+      filters.plate = new RegExp(req.query.Placa, "i");
     }
     const options = {
       page: req.query.page || 1,
-      limit: 10
+      limit: 8
     };
     const vehicle = await Vehicle.paginate(filters, options);
 
@@ -35,8 +44,17 @@ class VehicleController {
     const filters = {
       sold: true
     };
-    if (req.query.pesquisa) {
-      filters.model = new RegExp(req.query.pesquisa, "i");
+
+    if (req.query.Marca) {
+      filters.mark = new RegExp(req.query.Marca, "i");
+    }
+
+    if (req.query.model) {
+      filters.model = new RegExp(req.query.model, "i");
+    }
+
+    if (req.query.Placa) {
+      filters.plate = new RegExp(req.query.Placa, "i");
     }
     const options = {
       page: req.query.page || 1,

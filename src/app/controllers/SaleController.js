@@ -10,6 +10,19 @@ class SaleController {
     const filters = {
       sold: false
     };
+
+    if (req.query.Marca) {
+      filters.mark = new RegExp(req.query.Marca, "i");
+    }
+
+    if (req.query.model) {
+      filters.model = new RegExp(req.query.model, "i");
+    }
+
+    if (req.query.Placa) {
+      filters.plate = new RegExp(req.query.Placa, "i");
+    }
+
     const options = {
       page: req.query.page || 1,
       limit: 8
@@ -54,6 +67,23 @@ class SaleController {
   async soldView(req, res) {
     const company = await Company.findOne();
     const filters = {};
+
+    if (req.query.Data) {
+      filters.date = new RegExp(req.query.Data, "i");
+    }
+
+    if (req.query.Veículo) {
+      filters.vehicle = new RegExp(req.query.Veículo, "i");
+    }
+
+    if (req.query.Cliente) {
+      filters.customer = new RegExp(req.query.Cliente, "i");
+    }
+
+    if (req.query.Vendedor) {
+      filters.saller = new RegExp(req.query.Vendedor, "i");
+    }
+
     const options = {
       page: req.query.page || 1,
       limit: 8
