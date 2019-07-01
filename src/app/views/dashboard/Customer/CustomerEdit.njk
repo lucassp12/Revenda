@@ -12,43 +12,43 @@
       <div class="row">
         <div class="form-group col-md-12">
           <label for="name">Nome Completo:</label>
-          <input type="text" class="form-control" name="name" value="{{customer.name}}" />
+          <input type="text" class="form-control" name="name" value="{{customer.name}}" required />
         </div>
       </div>  
       <div class="row">
         <div class="form-group col-md-10">
           <label for="campo1">Endereço:</label>
-          <input type="text" class="form-control" name="address"  value="{{customer.address}}"/>
+          <input type="text" class="form-control" name="address"  value="{{customer.address}}" required />
         </div>
 
         <div class="form-group col-md-2">
           <label for="campo2">Número:</label>
-          <input type="text" class="form-control" name="number" value="{{customer.number}}" />
+          <input type="text" class="form-control" name="number" value="{{customer.number}}" required  />
         </div>
       </div>
       <div class="row"> 
         <div class="form-group col-md-4">
           <label for="campo1">Bairro:</label>
-          <input type="text" class="form-control" name="neighborhood" value="{{customer.neighborhood}}"/>
+          <input type="text" class="form-control" name="neighborhood" value="{{customer.neighborhood}}" required />
         </div>
         <div class="form-group col-md-4">
           <label for="campo2">Cidade:</label>
-          <input type="text" class="form-control" name="city" value="{{customer.city}}"  />
+          <input type="text" class="form-control" name="city" value="{{customer.city}}" required  />
         </div>
          <div class="form-group col-md-2">
           <label for="campo3">UF:</label>
-          <input type="text" class="form-control" name="state"  value="{{customer.state}}" />
+          <input type="text" class="form-control" name="state"  value="{{customer.state}}" required />
         </div>
          <div class="form-group col-md-2">
           <label for="campo4">Cep:</label>
-          <input type="text" class="form-control" name="zip_code" value="{{customer.zip_code}}" />
+          <input type="text" class="form-control" name="zip_code" value="{{customer.zip_code}}" required  />
         </div>
       </div>
 
       <div class="row">
         <div class="form-group col-md-6">
           <label for="campo1">Email:</label>
-          <input type="text" class="form-control" name="email" value="{{customer.email}}" />
+          <input type="text" class="form-control" name="email" value="{{customer.email}}" required />
         </div>
 
         <div class="form-group col-md-2">
@@ -60,27 +60,27 @@
         </div>
         <div class="form-group col-md-4">
           <label for="campo3">CPF/CNPJ</label>
-          <input type="text" class="form-control" name="cpf_cnpj" value="{{customer.cpf_cnpj}}"/>
+          <input type="text" class="form-control" name="cpf_cnpj" value="{{customer.cpf_cnpj}}" required />
         </div>
       </div>
       <div class="row">
         <div class="form-group col-md-3">
-          <label for="campo1">Carteira de identidade (RG)</label>
-          <input type="text" class="form-control" name="rg" value="{{customer.rg}}"  />
+          <label for="campo1">Carteira de identidade:</label>
+          <input type="text" class="form-control" name="rg" value="{{customer.rg}}" required  />
         </div>
 
         <div class="form-group col-md-3">
           <label for="campo2">Orgão emissor(RG): </label>
-          <input type="text" class="form-control" name="o_rg"  value="{{customer.o_rg}}" />
+          <input type="text" class="form-control" name="o_rg"  value="{{customer.o_rg}}" required  />
         </div>
 
         <div class="form-group col-md-3">
           <label for="campo3">Data de Nascimento: </label>
-          <input type="text" class="form-control" id="calendario" name="birth_date" value="{{customer.birth_date}}" />
+          <input type="text" class="form-control" id="calendario" name="birth_date" value="{{customer.birth_date}}" required  />
         </div>
          <div class="form-group col-md-3">
           <label for="campo4">Telefone: </label>
-          <input type="text" class="form-control" name="phone_number" value="{{customer.phone_number}}" />
+          <input type="text" class="form-control" name="phone_number" value="{{customer.phone_number}}" required  />
         </div>
       </div>
     <div class="row">

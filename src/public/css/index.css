@@ -251,6 +251,19 @@ td {
   float: right;
 }
 
+.form-vehicle {
+  width: 92%;
+  height: 98%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.form-vehicle h1 {
+  text-align: center;
+}
+
 /* ---- Sallers ---*/
 .form-saller {
   width: 90%;
@@ -370,4 +383,9 @@ td {
   width: 110px;
   margin-right: 0;
   height: 32px;
+}
+
+input,
+textarea {
+  text-transform: uppercase;
 }

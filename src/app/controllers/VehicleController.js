@@ -16,8 +16,8 @@ class VehicleController {
       filters.mark = new RegExp(req.query.Marca, "i");
     }
 
-    if (req.query.model) {
-      filters.model = new RegExp(req.query.model, "i");
+    if (req.query.Modelo) {
+      filters.model = new RegExp(req.query.Modelo, "i");
     }
 
     if (req.query.Placa) {
@@ -49,8 +49,8 @@ class VehicleController {
       filters.mark = new RegExp(req.query.Marca, "i");
     }
 
-    if (req.query.model) {
-      filters.model = new RegExp(req.query.model, "i");
+    if (req.query.Modelo) {
+      filters.model = new RegExp(req.query.Modelo, "i");
     }
 
     if (req.query.Placa) {

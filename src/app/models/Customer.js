@@ -4,10 +4,12 @@ const mongoosePaginate = require("mongoose-paginate-v2");
 const Customer = new mongoose.Schema({
   name: {
     type: String,
+    uppercase: true,
     required: true
   },
   address: {
     type: String,
+    uppercase: true,
     required: true
   },
   number: {
@@ -16,14 +18,17 @@ const Customer = new mongoose.Schema({
   },
   neighborhood: {
     type: String,
+    uppercase: true,
     required: true
   },
   city: {
     type: String,
+    uppercase: true,
     required: true
   },
   state: {
     type: String,
+    uppercase: true,
     required: true
   },
   zip_code: {
@@ -36,6 +41,7 @@ const Customer = new mongoose.Schema({
   },
   type: {
     type: String,
+    uppercase: true,
     required: true
   },
   cpf_cnpj: {
@@ -48,6 +54,7 @@ const Customer = new mongoose.Schema({
   },
   o_rg: {
     type: String,
+    uppercase: true,
     required: true
   },
   birth_date: {
@@ -59,7 +66,8 @@ const Customer = new mongoose.Schema({
     required: true
   },
   information: {
-    type: String
+    type: String,
+    uppercase: true
   },
   createdAt: {
     type: Date,

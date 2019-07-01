@@ -1,7 +1,7 @@
 {% extends "_layouts/dashboard.njk" %}
 {% block body %}
 <div class="container-form">
-  <div class="form-customer">
+  <div class="form-vehicle">
   {% include "_partials/flash.njk" %}
     <form
       class="form"
@@ -51,10 +51,10 @@
       <div class="row">
         <div class="form-group col-md-2">
           <label for="campo1">Placa:</label>
-          <input type="text" class="placa form-control" name="plate" required/>
+          <input type="text" class="placa form-control" name="plate" maxlength="8" required/>
         </div>
 
-        <div class="form-group col-md-4">
+        <div class="form-group col-md-3">
           <label for="campo2">Renavam:</label>
           <input type="text" class="renavam form-control" name="renavam" maxlength="11" required/>
         </div>
@@ -66,7 +66,7 @@
           <label for="campo1">Data de Compra:</label>
            <input type="text" class="form-control" id="calendario" name="date_buy"  required />
         </div>
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-3">
           <label for="campo1">Preço de Compra:</label>
           <input type="text" class="preco form-control" name="price_buy" maxlength="11" required />
         </div>

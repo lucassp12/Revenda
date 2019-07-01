@@ -5,6 +5,12 @@
 <h1>Lista de Clientes: </h1>
 		<td class="actions text-right">
 			<a href="/customer" class="btn btn-sm btn-success"><i class="fas fa-plus"></i> Adicionar</a>
+			    <select class="select">
+      <option> </option>
+      <option>Nome: </option>
+      <option>CPF: </option>
+      <option>Telefone: </option>
+    </select>
 			<input class="pesquisas" type="text" /><a class="pesquisar btn btn-sm btn-info">Pesquisar</a>
 		</td>
   <table class="table table-hover">
@@ -25,7 +31,7 @@
 		<td>{{customer.phone_number}}</td>
 		<td class="actions text-right">
 			<a href="/customer/{{customer._id}}" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-			<a href="/customer/edit/{{customer._id}}" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+			<a href="/customer/edit/{{customer._id}}" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Editar</a>
 		</td>
 	</tr>
 {% endfor %}

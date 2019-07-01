@@ -4,14 +4,17 @@ const mongoosePaginate = require("mongoose-paginate-v2");
 const Sale = new mongoose.Schema({
   vehicle: {
     type: String,
+    uppercase: true,
     required: true
   },
   customer: {
     type: String,
+    uppercase: true,
     required: true
   },
   saller: {
     type: String,
+    uppercase: true,
     required: true
   },
   price: {
@@ -23,7 +26,8 @@ const Sale = new mongoose.Schema({
     required: true
   },
   information: {
-    type: String
+    type: String,
+    uppercase: true
   },
   totals_sale: {
     type: Number

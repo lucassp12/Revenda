@@ -4,6 +4,7 @@ const mongoosePaginate = require("mongoose-paginate-v2");
 const Saller = new mongoose.Schema({
   name: {
     type: String,
+    uppercase: true,
     required: true
   },
   cpf: {
@@ -20,6 +21,7 @@ const Saller = new mongoose.Schema({
   },
   address: {
     type: String,
+    uppercase: true,
     required: true
   },
   number: {
@@ -28,14 +30,17 @@ const Saller = new mongoose.Schema({
   },
   neighborhood: {
     type: String,
+    uppercase: true,
     required: true
   },
   city: {
     type: String,
+    uppercase: true,
     required: true
   },
   uf: {
     type: String,
+    uppercase: true,
     required: true
   },
   zip_code: {

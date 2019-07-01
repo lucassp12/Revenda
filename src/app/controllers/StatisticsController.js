@@ -19,10 +19,6 @@ class StatisticsController {
         totalBuy += vehicles[key].price_buy;
         totalSale += vehicles[key].price_sale;
         totalExpenses += vehicles[key].total_expenses;
-      } else {
-        totalBuy -= vehicles[key].price_buy;
-        totalSale -= vehicles[key].price_sale;
-        totalExpenses -= vehicles[key].total_expenses;
       }
     }
     statistics.total_purchases = totalBuy;

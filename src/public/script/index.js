@@ -81,8 +81,14 @@ $(".pesquisar").click(function(event) {
     .querySelector(".select")
     .value.split(":")
     .join("=");
+
   const pesquisa = document.querySelector(".pesquisas").value;
   location.href = "?" + select + pesquisa;
+});
+
+$(".pesquisa").click(function(event) {
+  const pesquisa = document.querySelector(".pesquisas").value;
+  location.href = "?pesquisa=" + pesquisa;
 });
 
 $(".ano").mask("####");
@@ -95,6 +101,8 @@ $(".cpf").mask("###.###.###-##");
 $(".rg").mask("########");
 $(".number").mask("#######");
 $(".cep").mask("#####-###");
+$(".cnpj").mask("00.000.000/0000-00");
+$(".ie").mask("000/0000000");
 
 var options = {
   onKeyPress: function(cpfcnpj, e, field, options) {
@@ -122,3 +130,16 @@ function mudarCampo(id, value) {
   var total = formatReal(value);
   document.getElementById(id).innerHTML = total;
 }
+
+function formatIsoToBr() {
+  const value = document.querySelector(".data").innerHTML;
+  const date = new Date(value)
+    .toISOString()
+    .split("T")[0]
+    .split("-")
+    .reverse()
+    .join("/");
+
+  document.querySelector(".data").innerHTML = date;
+}
+formatIsoToBr();

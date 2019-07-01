@@ -5,10 +5,12 @@ const format = require("../helpers/format");
 const Vehicle = new mongoose.Schema({
   mark: {
     type: String,
+    uppercase: true,
     required: true
   },
   model: {
     type: String,
+    uppercase: true,
     required: true
   },
   year_manufacture: {
@@ -21,6 +23,7 @@ const Vehicle = new mongoose.Schema({
   },
   plate: {
     type: String,
+    uppercase: true,
     required: true
   },
   renavam: {
@@ -43,6 +46,7 @@ const Vehicle = new mongoose.Schema({
   },
   color: {
     type: String,
+    uppercase: true,
     required: true
   },
   total_expenses: {
@@ -59,6 +63,7 @@ const Vehicle = new mongoose.Schema({
   },
   additional: {
     type: String,
+    uppercase: true,
     required: true
   },
   price_buy: {
@@ -70,7 +75,8 @@ const Vehicle = new mongoose.Schema({
     required: true
   },
   description_spend: {
-    type: String
+    type: String,
+    uppercase: true
   },
   sold: {
     type: Boolean,

@@ -4,7 +4,8 @@ const mongoosePaginate = require("mongoose-paginate-v2");
 const Category = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    uppercase: true
   }
 });
 

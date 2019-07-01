@@ -7,6 +7,7 @@ const Company = new mongoose.Schema({
   },
   name: {
     type: String,
+    uppercase: true,
     required: true
   },
   cnpj: {
@@ -19,6 +20,7 @@ const Company = new mongoose.Schema({
   },
   street: {
     type: String,
+    uppercase: true,
     required: true
   },
   number: {
@@ -27,18 +29,22 @@ const Company = new mongoose.Schema({
   },
   neighborhood: {
     type: String,
+    uppercase: true,
     required: true
   },
   state: {
     type: String,
+    uppercase: true,
     required: true
   },
   zip_code: {
     type: String,
+    uppercase: true,
     required: true
   },
   city: {
     type: String,
+    uppercase: true,
     required: true
   },
   phone_number: {

@@ -6,6 +6,7 @@ const authConfig = require("../../config/auth");
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
+    uppercase: true,
     required: true
   },
   email: {

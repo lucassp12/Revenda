@@ -11,8 +11,16 @@ class CustomerController {
     const company = await Company.findOne();
     const filters = {};
 
-    if (req.query.pesquisa) {
-      filters.name = new RegExp(req.query.pesquisa, "i");
+    if (req.query.Nome) {
+      filters.mark = new RegExp(req.query.Marca, "i");
+    }
+
+    if (req.query.CPF) {
+      filters.model = new RegExp(req.query.CPF, "i");
+    }
+
+    if (req.query.TELEFONE) {
+      filters.plate = new RegExp(req.query.TELEFONE, "i");
     }
 
     const options = {
